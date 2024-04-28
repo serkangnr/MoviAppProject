@@ -4,10 +4,7 @@ import static com.serkanguner.movieapp.constant.EndPoints.*;
 import com.serkanguner.movieapp.dto.request.UserLoginRequestDto;
 import com.serkanguner.movieapp.dto.request.UserRegisterRequestDto;
 import com.serkanguner.movieapp.dto.request.UserSaveRequestDto;
-import com.serkanguner.movieapp.dto.response.EmailFindAllResponseDto;
-import com.serkanguner.movieapp.dto.response.UserFindAllResponseDto;
-import com.serkanguner.movieapp.dto.response.UserLoginResponseDto;
-import com.serkanguner.movieapp.dto.response.UserNameFindAllOrderBy;
+import com.serkanguner.movieapp.dto.response.*;
 import com.serkanguner.movieapp.entity.User;
 import com.serkanguner.movieapp.exception.ErrorType;
 import com.serkanguner.movieapp.exception.MovieAppException;
@@ -82,6 +79,12 @@ public class UserController {
     @CrossOrigin("*")
     public Boolean existByEmailAndPassword(@PathVariable String email , @PathVariable String password){
         return userService.existsByEmailAndPassword(email,password);
+    }
+
+    @GetMapping("/favmoviesfindUser")
+    @CrossOrigin("*")
+    public ResponseEntity<List<UserFavMovies>> findAllFavoriteMovieByName(String name){
+        return ResponseEntity.ok((userService.findAllFavoriteMovieByName(name)));
     }
 
 

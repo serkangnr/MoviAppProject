@@ -4,6 +4,7 @@ import static com.serkanguner.movieapp.constant.EndPoints.*;
 import com.serkanguner.movieapp.dto.request.MovieSaveRequestDto;
 import com.serkanguner.movieapp.dto.request.UserSaveRequestDto;
 import com.serkanguner.movieapp.dto.response.MovieFindAllResponseDto;
+import com.serkanguner.movieapp.dto.response.UserFavMovies;
 import com.serkanguner.movieapp.dto.response.UserFindAllResponseDto;
 import com.serkanguner.movieapp.service.MovieService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,14 @@ public class MovieController {
     public ResponseEntity<List<MovieFindAllResponseDto>> findAllDto(){
         return ResponseEntity.ok(movieService.findMovieDto());
     }
+
+    @GetMapping("/ratingfindall")
+    @CrossOrigin("*")
+    public ResponseEntity<List<MovieFindAllResponseDto>> findAllByRatingGreaterThan(Double rating){
+        return ResponseEntity.ok(movieService.findAllByRatingGreaterThan(rating));
+    }
+
+
+
 
 }

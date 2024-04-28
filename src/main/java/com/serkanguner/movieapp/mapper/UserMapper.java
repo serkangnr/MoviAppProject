@@ -1,7 +1,9 @@
 package com.serkanguner.movieapp.mapper;
 
 import com.serkanguner.movieapp.dto.request.UserSaveRequestDto;
+import com.serkanguner.movieapp.dto.response.UserFavMovies;
 import com.serkanguner.movieapp.dto.response.UserFindAllResponseDto;
+import com.serkanguner.movieapp.entity.Movie;
 import com.serkanguner.movieapp.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -12,6 +14,10 @@ public interface UserMapper {
 
     UserFindAllResponseDto userToUserFindAllResponseDto(User user);
     User dtoToUser(UserSaveRequestDto dto);
+
+    UserFavMovies movieToUserFavMovies(User user);
+
+
 
 
 

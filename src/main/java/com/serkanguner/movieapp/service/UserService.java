@@ -6,8 +6,10 @@ import com.serkanguner.movieapp.dto.request.UserRegisterRequestDto;
 import com.serkanguner.movieapp.dto.request.UserSaveRequestDto;
 import com.serkanguner.movieapp.dto.response.*;
 import com.serkanguner.movieapp.entity.User;
+import com.serkanguner.movieapp.exception.ErrorType;
 import com.serkanguner.movieapp.exception.GlobalExceptionHandler;
 import com.serkanguner.movieapp.exception.MovieAppException;
+import com.serkanguner.movieapp.mapper.MovieMapper;
 import com.serkanguner.movieapp.mapper.UserLoginMapper;
 import com.serkanguner.movieapp.mapper.UserMapper;
 import com.serkanguner.movieapp.mapper.UserRegisterMapper;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService extends ServiceManager<User, Long> {
@@ -85,7 +88,13 @@ public class UserService extends ServiceManager<User, Long> {
         if (user != null) {
            return ResponseEntity.ok(UserLoginMapper.INSTANCE.userToUserLoginResponseDto(user.get())) ;
         }
-            throw new RuntimeException("Kullanici bulunamadi");
+            throw new MovieAppException(ErrorType.USER_NOT_FOUND,"User not found");
+    }
+
+    public List<UserFavMovies> findAllFavoriteMovieByName(String name){
+        return userRepository.findAllFavmoviesByName(name).stream()
+                .map(UserMapper.INSTANCE::movieToUserFavMovies)
+                .collect(Collectors.toList());
     }
 
 
