@@ -10,6 +10,7 @@ import com.serkanguner.movieapp.exception.ErrorType;
 import com.serkanguner.movieapp.exception.MovieAppException;
 import com.serkanguner.movieapp.repository.UserRepository;
 import com.serkanguner.movieapp.service.UserService;
+import jakarta.validation.constraints.Email;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +29,12 @@ public class UserController {
 
     @GetMapping("/login")
     @CrossOrigin("*")
-    public ResponseEntity<UserLoginResponseDto> doLogin(String email, String password){
-        return userService.userLoginDto(email, password);
+    public ResponseEntity<UserLoginResponseDto> doLogin(String email,String password){
+        if (email.endsWith("gmail.com"))
+            return userService.userLoginDto(email, password);
+        else
+            throw new MovieAppException(ErrorType.WRONG_EMAIL_TYPE,"Wrong email Type");
+
     }
 
     @PostMapping("/register")

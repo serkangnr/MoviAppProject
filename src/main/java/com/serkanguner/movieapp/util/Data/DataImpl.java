@@ -102,73 +102,90 @@ public class DataImpl implements ApplicationRunner {
     }
 
     public void saveUsers(){
-        User user1=User.builder()
-                .name("Berkay")
-                .surname("Güzel")
-                .email("güzel@gmail.com")
-                .phone("5554443322")
+//        User user1=User.builder()
+//                .name("Berkay")
+//                .surname("Güzel")
+//                .email("güzel@gmail.com")
+//                .phone("5554443322")
+//                .password("123")
+//                .favgenres(genreService.genreSave(List.of("Drama","Horror","AŞKKKK")))
+//                .favmovies(movieService.findAllById(List.of(1L,15L,20L)))
+//                .build();
+//
+//        user1.setComments(List.of(
+//                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(1L).get()).user(user1).build(),
+//                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(15L).get()).user(user1).build(),
+//                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(20L).get()).user(user1).build()
+//        ));
+//        userService.save(user1);
+//
+//        User user2=User.builder()
+//                .name("Aslı")
+//                .surname("Mert")
+//                .email("asli@gmail.com")
+//                .phone("5554443322")
+//                .password("123")
+//                .favgenres(genreService.genreSave(List.of("Action","Adventure")))
+//                .favmovies(movieService.findAllById(List.of(2L,16L,21L)))
+//                .build();
+//
+//        user2.setComments(List.of(
+//                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(2L).get()).user(user2).build(),
+//                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(16L).get()).user(user2).build(),
+//                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(21L).get()).user(user2).build()
+//        ));
+//        userService.save(user2);
+//
+//        User user3=User.builder()
+//                .name("Kenan")
+//                .surname("Öktener")
+//                .email("kenan@gmail.com")
+//                .phone("5554443322")
+//                .password("123")
+//                .favgenres(genreService.genreSave(List.of("Mystery","Legal")))
+//                .favmovies(movieService.findAllById(List.of(3L,17L,22L)))
+//                .build();
+//
+//        user3.setComments(List.of(
+//                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(3L).get()).user(user3).build(),
+//                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(17L).get()).user(user3).build(),
+//                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(22L).get()).user(user3).build()
+//        ));
+//        userService.save(user3);
+//
+//        User user4=User.builder()
+//                .name("Salih")
+//                .surname("Er")
+//                .email("salih@gmail.com")
+//                .phone("5554443322")
+//                .password("123")
+//                .favgenres(genreService.genreSave(List.of("Science-Fiction","War")))
+//                .favmovies(movieService.findAllById(List.of(5L)))
+//                .build();
+//
+//        user4.setComments(List.of(
+//                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(5L).get()).user(user4).build(),
+//                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(22L).get()).user(user4).build(),
+//                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(17L).get()).user(user4).build()
+//        ));
+//        userService.save(user4);
+
+        User user5=User.builder()
+                .name("Serkan")
+                .surname("Guner")
+                .email("serkan@gmail.com")
+                .phone("5455012677")
                 .password("123")
-                .favgenres(genreService.genreSave(List.of("Drama","Horror","AŞKKKK")))
-                .favmovies(movieService.findAllById(List.of(1L,15L,20L)))
+                .favgenres(genreService.genreSave(List.of("Comedy","Action","Anime")))
+                .favmovies(movieService.findAllById(List.of(40L,50L,26L)))
                 .build();
 
-        user1.setComments(List.of(
-                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(1L).get()).user(user1).build(),
-                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(15L).get()).user(user1).build(),
-                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(20L).get()).user(user1).build()
+        user5.setComments(List.of(
+                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(40L).get()).user(user5).build(),
+                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(50L).get()).user(user5).build(),
+                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(100L).get()).user(user5).build()
         ));
-        userService.save(user1);
-
-        User user2=User.builder()
-                .name("Aslı")
-                .surname("Mert")
-                .email("asli@gmail.com")
-                .phone("5554443322")
-                .password("123")
-                .favgenres(genreService.genreSave(List.of("Action","Adventure")))
-                .favmovies(movieService.findAllById(List.of(2L,16L,21L)))
-                .build();
-
-        user2.setComments(List.of(
-                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(2L).get()).user(user2).build(),
-                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(16L).get()).user(user2).build(),
-                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(21L).get()).user(user2).build()
-        ));
-        userService.save(user2);
-
-        User user3=User.builder()
-                .name("Kenan")
-                .surname("Öktener")
-                .email("kenan@gmail.com")
-                .phone("5554443322")
-                .password("123")
-                .favgenres(genreService.genreSave(List.of("Mystery","Legal")))
-                .favmovies(movieService.findAllById(List.of(3L,17L,22L)))
-                .build();
-
-        user3.setComments(List.of(
-                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(3L).get()).user(user3).build(),
-                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(17L).get()).user(user3).build(),
-                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(22L).get()).user(user3).build()
-        ));
-        userService.save(user3);
-
-        User user4=User.builder()
-                .name("Salih")
-                .surname("Er")
-                .email("salih@gmail.com")
-                .phone("5554443322")
-                .password("123")
-                .favgenres(genreService.genreSave(List.of("Science-Fiction","War")))
-                .favmovies(movieService.findAllById(List.of(5L)))
-                .build();
-
-        user4.setComments(List.of(
-                MovieComment.builder().content("Çok iyi bir filmdi").movie(movieService.findById(5L).get()).user(user4).build(),
-                MovieComment.builder().content("İzlediğin en harika  filmdi").movie(movieService.findById(22L).get()).user(user4).build(),
-                MovieComment.builder().content("Sonunu göremeden uyudum...").movie(movieService.findById(17L).get()).user(user4).build()
-        ));
-        userService.save(user4);
+        userService.save(user5);
 
 
 

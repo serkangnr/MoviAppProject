@@ -1,4 +1,6 @@
 package com.serkanguner.movieapp.dto.request;
 
-public record UserLoginRequestDto(String email, String password) {
+import jakarta.validation.constraints.Email;
+
+public record UserLoginRequestDto(@Email String email, String password) {
 }

@@ -87,10 +87,10 @@ public class UserService extends ServiceManager<User, Long> {
     public ResponseEntity<UserLoginResponseDto> userLoginDto(String email, String password) {
 //        Boolean isUser = existsByEmailAndPassword(email, password);
         Optional<User> user = userRepository.findOptionalByEmailAndPassword(email, password);
-        if (user != null) {
-           return ResponseEntity.ok(UserLoginMapper.INSTANCE.userToUserLoginResponseDto(user.get())) ;
+        if (user.isPresent()) {
+            return ResponseEntity.ok(UserLoginMapper.INSTANCE.userToUserLoginResponseDto(user.get())) ;
         }
-            throw new MovieAppException(ErrorType.USER_NOT_FOUND,"User not found");
+        throw new MovieAppException(ErrorType.USER_NOT_FOUND,"User not found");
     }
 
     public List<UserFavMovies> findAllFavoriteMovieByName(String name){
