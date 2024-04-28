@@ -20,4 +20,6 @@ public interface MovieCommentMapper {
 
     MovieCommentFindAllResponseDto movieCommentFindAllResponseDto(MovieComment movieComment);
     MovieComment dtoToMovieComment(MovieCommentSaveRequestDto dto);
+
+
 }

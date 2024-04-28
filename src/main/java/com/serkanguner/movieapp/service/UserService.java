@@ -5,6 +5,7 @@ import com.serkanguner.movieapp.dto.request.UserLoginRequestDto;
 import com.serkanguner.movieapp.dto.request.UserRegisterRequestDto;
 import com.serkanguner.movieapp.dto.request.UserSaveRequestDto;
 import com.serkanguner.movieapp.dto.response.*;
+import com.serkanguner.movieapp.entity.MovieComment;
 import com.serkanguner.movieapp.entity.User;
 import com.serkanguner.movieapp.exception.ErrorType;
 import com.serkanguner.movieapp.exception.GlobalExceptionHandler;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -96,6 +98,19 @@ public class UserService extends ServiceManager<User, Long> {
                 .map(UserMapper.INSTANCE::movieToUserFavMovies)
                 .collect(Collectors.toList());
     }
+
+    public List<UserCommentsDto> findAllById(Long id){
+        return userRepository.findAllById(id).stream()
+               .map(UserMapper.INSTANCE::userToUserCommentsDto)
+               .collect(Collectors.toList());
+    }
+
+//    public List<UserCommentsDto>findAllCommentsByDateBetweenAndById(LocalDate start, LocalDate end, Long id){
+//        List<User> allCommentByDateBetweenById = userRepository.findAllCommentsByDateBetweenAndById(start, end, id);
+//        return allCommentByDateBetweenById.stream().map(UserMapper.INSTANCE::userToUserCommentsDto).collect(Collectors.toList());
+//    }
+
+
 
 
     //

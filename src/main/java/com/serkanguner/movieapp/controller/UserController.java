@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,6 +87,23 @@ public class UserController {
     public ResponseEntity<List<UserFavMovies>> findAllFavoriteMovieByName(String name){
         return ResponseEntity.ok((userService.findAllFavoriteMovieByName(name)));
     }
+//    @GetMapping("/commentById")
+//    @CrossOrigin("*")
+//    public ResponseEntity<List<UserCommentsDto>> findAllById(Long id){
+//        return ResponseEntity.ok((userService.findAllById(id)));
+//    }
+
+    @GetMapping("/commentfindUser")
+    @CrossOrigin("*")
+    public ResponseEntity<List<UserCommentsDto>> findAllById(Long id){
+        return ResponseEntity.ok(userService.findAllById(id));
+    }
+
+//    @GetMapping("/commentfindDateAndId")
+//    @CrossOrigin("*")
+//    public ResponseEntity<List<UserCommentsDto>> findAllCommentsByDateBetweenAndById(LocalDate start, LocalDate end, Long id){
+//        return ResponseEntity.ok(userService.findAllCommentsByDateBetweenAndById(start,end,id));
+//    }
 
 
 

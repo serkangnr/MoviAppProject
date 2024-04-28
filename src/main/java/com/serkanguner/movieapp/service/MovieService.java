@@ -48,5 +48,35 @@ public class MovieService extends ServiceManager<Movie,Long> {
            .collect(Collectors.toList());
    }
 
+   public List<MovieFindAllResponseDto> findAllByPremieredBefore(String date){
+    return movieRepository.findAllByPremieredBefore(date).stream()
+           .map(MovieMapper.INSTANCE::movieFindAllResponseDto)
+           .collect(Collectors.toList());
+   }
+
+   public Object[] checkRatingScore(Double rating){
+       Object[] checkRatingScore = movieRepository.checkRatingScore(rating);
+       return checkRatingScore;
+   }
+
+   public List<MovieFindAllResponseDto> findByRatingAfter(Double rating){
+       return movieRepository.findByRatingAfter(rating).stream()
+              .map(MovieMapper.INSTANCE::movieFindAllResponseDto)
+              .collect(Collectors.toList());
+   }
+
+   public List<MovieFindAllResponseDto> findAllByNameContainingIgnoreCase(String name, String name2){
+       return movieRepository.findAllByNameOrName(name,name2).stream()
+              .map(MovieMapper.INSTANCE::movieFindAllResponseDto)
+              .collect(Collectors.toList());
+   }
+
+
+    public List<Object[]> checkCountryScore(){
+        List<Object[]> objects1 = movieRepository.checkCountryScore();
+        return objects1;
+    }
+
+
 
 }

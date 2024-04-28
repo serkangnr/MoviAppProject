@@ -37,6 +37,35 @@ public class MovieController {
         return ResponseEntity.ok(movieService.findAllByRatingGreaterThan(rating));
     }
 
+    @GetMapping("/premeriredBeforeDate")
+    @CrossOrigin("*")
+    public ResponseEntity<List<MovieFindAllResponseDto>> findAllByPremieredBefore(String date){
+        return ResponseEntity.ok(movieService.findAllByPremieredBefore(date));
+    }
+
+    @GetMapping("checkratingscore")
+    @CrossOrigin("*")
+    public ResponseEntity<Object[]> checkRatingScore(Double rating){
+        return ResponseEntity.ok(movieService.checkRatingScore(rating));
+    }
+    @GetMapping("/findbyratingafter")
+    @CrossOrigin("*")
+    public ResponseEntity<List<MovieFindAllResponseDto>> findByRatingAfter(Double rating){
+        return ResponseEntity.ok(movieService.findByRatingAfter(rating));
+    }
+
+    @GetMapping("/findAllByNameArray")
+    @CrossOrigin("*")
+    public ResponseEntity<List<MovieFindAllResponseDto>> findAllByNameContainingIgnoreCase(String name, String name2){
+        return ResponseEntity.ok(movieService.findAllByNameContainingIgnoreCase(name, name2));
+    }
+
+    @GetMapping("checkCountryScore")
+    @CrossOrigin("*")
+    public ResponseEntity<List<Object[]>> checkCountryScore(){
+        return ResponseEntity.ok(movieService.checkCountryScore());
+    }
+
 
 
 
